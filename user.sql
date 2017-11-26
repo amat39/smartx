@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 25, 2017 at 06:18 PM
+-- Generation Time: Nov 26, 2017 at 05:30 AM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 7.0.3
 
@@ -31,20 +31,13 @@ CREATE TABLE `polis` (
   `jenis` int(3) NOT NULL,
   `status` int(11) DEFAULT NULL,
   `NIK` int(18) NOT NULL,
-  `KTP` varchar(40) NOT NULL,
-  `slip_gaji` varchar(40) NOT NULL,
+  `KTP` varchar(255) NOT NULL,
+  `slip_gaji` varchar(255) NOT NULL,
   `NOREK` int(20) NOT NULL,
-  `rek_tabungan` varchar(40) NOT NULL,
-  `rek_listrik` varchar(40) NOT NULL,
+  `rek_tabungan` varchar(255) NOT NULL,
+  `rek_listrik` varchar(255) NOT NULL,
   `uname` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `polis`
---
-
-INSERT INTO `polis` (`id`, `jenis`, `status`, `NIK`, `KTP`, `slip_gaji`, `NOREK`, `rek_tabungan`, `rek_listrik`, `uname`) VALUES
-(620, 1, 0, 1515015094, 'UploadFolder/KTP/faza_lvl1.jpeg', 'UploadFolder/slip/faza_lvl1.jpeg', 1515015094, 'UploadFolder/rektabungan/faza_lvl1.jpeg', 'UploadFolder/reklistrik/faza_lvl1.jpeg', 'faza');
 
 -- --------------------------------------------------------
 
@@ -69,9 +62,29 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`username`, `password`, `email`, `firstname`, `lastname`, `dateofbirth`, `address`, `province`, `level`) VALUES
-('faridefen', 'faridefen', '', 'farid', 'efendy', '1996-12-28', 'di kantin fkti unmul samarinda', 'kaltim', 1),
-('faza', 'faza', 'fazaalameka@gmail.com', 'faza', 'alameka', '2017-11-25', 'asdsad', 'kaltim', 1),
-('gondrong', 'gondrong', '', 'gondrong', 'gondrong', '2017-11-23', 'gondrong', 'kaltim', 1);
+('admin', 'admin', 'efendyfarid@gmail.com', 'farid', 'efendy', '1996-11-28', 'samarinda', 'kaltim', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `verif`
+--
+
+CREATE TABLE `verif` (
+  `NIK` int(40) NOT NULL,
+  `NOREK` int(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `verif`
+--
+
+INSERT INTO `verif` (`NIK`, `NOREK`) VALUES
+(123456, 123456),
+(1234567890, 1234567890),
+(987654321, 987654321),
+(1234567890, 1234567890),
+(987654321, 987654321);
 
 --
 -- Indexes for dumped tables
